@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include "get_next_line.h"
 #define BUFFER_SIZE 100
-#define	MAX_FD 5
+//#define	MAX_FD 5
 
 void	ft_free(char *str)
 {
@@ -85,7 +83,7 @@ char	*get_next_line(int fd)
 	}
 	if (!s_tatic[fd])
 		s_tatic[fd] = ft_strdup("");
-	if (ft_fileread(&line, &buffer, &s_tatic, fd) == 0 || *line == '\0')
+	if (ft_fileread(&line, &buffer, &s_tatic[fd], fd) == 0 || *line == '\0')
 	{
 		ft_free(buffer);
 		return (0);
