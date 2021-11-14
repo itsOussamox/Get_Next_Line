@@ -15,6 +15,7 @@
 #include <fcntl.h>
 #define BUFFER_SIZE 100
 #define	MAX_FD 5
+
 void	ft_free(char *str)
 {
 	if(str)
@@ -46,6 +47,7 @@ char	*ft_line(char **line, char **s_tatic)
 	ft_free(forfree);
 	return (*line);
 }
+
 int	ft_fileread(char **line, char **buffer, char **s_tatic, int fd)
 {
 	int		bytes;
@@ -88,4 +90,5 @@ char	*get_next_line(int fd)
 		ft_free(buffer);
 		return (0);
 	}
+	return (line);
 }
